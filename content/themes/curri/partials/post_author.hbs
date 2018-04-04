@@ -1,0 +1,23 @@
+<!--Post author info block-->
+<h3 class="post-author-block-title">About The Author</h3>
+<section class="post-author-block" id="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="post-author-cover bg-center"{{#if author.cover}} style="background-image: url({{author.cover}})"{{/if}}>
+    <div class="filter">
+      {{#if author.image}}
+      <img src="{{author.image}}" itemprop="image" class="post-author-img" alt="{{author.name}} avatar" />
+      {{/if}}
+      <div class="post-author-cover-info">
+        <h3 class="post-author-name" itemprop="name">{{author.name}}</h3>
+        <p class="post-author-bio" itemprop="description">{{author.bio}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="post-author-info">
+    {{#if author.website}}
+    <a class="post-author-website" href="{{author.website}}" itemprop="url"><i class="fa fa-globe"></i> {{author.website}}</a>
+    {{/if}}
+    {{#if author.email}}
+    <a class="post-author-email" href="mailto:{{author.email}}" itemprop="email"><i class="fa fa-envelope"></i> {{author.email}}</a>
+    {{/if}}     
+  </div>
+</section>

@@ -1,0 +1,37 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The main content area on the homepage }}
+<main class="content container" role="main">
+  <!--
+  Timeline classes available:
+  1. class="timeline" = default, 2 items per row, floating left & right, timeline runs down the middle. Is stacked on mobile.
+  2. class="timeline timeline-stacked" = posts stack on top of each other, 1 item per row, timeline runs down the middle, markers show above posts. Is default mobile layout.
+  3. class="timeline timeline-stacked markers-down" = same as above but markers show below posts. markers-down works on mobile too.
+  4. class="timeline timeline-left" = 1 item per row, floating left, timeline runs down the left with markers aligned left
+  5. class="timeline timeline-right" = 1 item per row, floating right, timeline runs down the right with markers aligned right
+  -->
+  <div class="timeline">
+    <!-- List options -->
+    <div class="post-list-options timeline-breaker">
+      <a href="#" class="post-list-option-left" data-toggle="tooltip" data-placement="top" data-original-title="Left timeline" data-value="timeline-left">Left</a>
+      <a href="#" class="post-list-option-stacked" data-toggle="tooltip" data-placement="top" data-original-title="Stacked timeline" data-value="timeline-stacked">Stacked</a>
+      <a href="#" class="post-list-option-left-right active" data-toggle="tooltip" data-placement="top" data-original-title="Default left, right timeline" data-value="">Left & Right</a>
+      <a href="#" class="post-list-option-stacked-markers-down" data-toggle="tooltip" data-placement="top" data-original-title="Stacked timeline with markers down" data-value="timeline-stacked markers-down">Stacked (markers down)</a>
+      <a href="#" class="post-list-option-right" data-toggle="tooltip" data-placement="top" data-original-title="Right timeline" data-value="timeline-right">Right</a>
+    </div>
+  
+    <!-- @region: Posts -->
+    <div id="posts">
+    {{! Each post will be output using this markup }}
+    {{#foreach posts}}
+      {{> post_item}}
+    {{/foreach}}      
+    </div>
+  
+    {{!! After all the posts, we have the previous/next pagination links }}
+    {{pagination}}
+  </div>
+</main>

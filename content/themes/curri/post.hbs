@@ -1,0 +1,60 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<main class="content container" role="main">
+
+  <article class="{{post_class}} post-full-view animated fadeIn de-02" itemscope itemtype="http://schema.org/BlogPosting">
+
+  {{! Everything inside the #post tags pulls data from the post }}
+  {{#post}}
+    {{! Everything below outputs content of the the post which has been published }}
+    <header class="post-header">
+      <span class="post-date"><time datetime="{{date format='YYYY-MM-DD'}}" content="{{date format='YYYY-MM-DD'}}" itemprop="datePublished">{{date format="DD MMM YYYY"}}</time></span>
+      <h2 class="post-title" itemprop="name">{{{title}}}</h2>
+
+      <section class="post-meta-actions" data-toggle="clingify">
+        <div class="post-meta">
+          <span class="post-small-title clingify-show">{{{title}}}: </span>
+          {{#if author.name}}
+          <span class="post-author">
+            <i class="fa fa-user"></i> By <a href="{{url}}#author">{{author.name}}</a>
+          </span>
+          {{/if}}
+          {{#if tags}}<span class="post-tags"><i class="fa fa-tags"></i> <span itemprop="keywords">{{tags}}</span></span>{{/if}}
+        </div>
+        <div class="post-actions">
+          <a href="#top" class="btn btn-sm btn-primary-light btn-square post-top clingify-show"><i class="fa fa-chevron-up"></i></a>
+          {{> post_share}}
+        </div>
+      </section>
+    </header>
+
+    <section class="post-content" itemprop="articleBody">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tangituru-post -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6928256127896853"
+           data-ad-slot="6973148922"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      {{content}}
+    </section>
+
+    <footer class="post-footer">
+      {{#if author}}
+        {{> post_author}}
+      {{/if}}
+    </footer>
+
+  {{/post}}
+
+  </article>
+  
+  {{! Comment form }}
+  {{> comment_form}}
+</main>

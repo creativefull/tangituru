@@ -1,0 +1,32 @@
+{{!Post item shown on index page }}
+<!-- Post ID: {{id}} -->
+<article class="{{post_class}} timeline-item{{#if @first}} first{{/if}}{{#if @last}} last{{/if}}{{#if @even}} even{{else}} odd{{/if}} animated fadeIn de-02" data-post-url="{{url}}">
+  <div data-url="{{url}}" data-title="View post" class="post-feature-media">{{content words="100"}}</div>
+  <header class="post-header">
+    <span class="post-date"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time></span>
+    <h2 class="post-title"><a href="{{url}}" title="View post">{{{title}}}</a></h2>
+  </header>
+  
+  <section class="post-excerpt">
+    <p>{{excerpt words="20"}}</p>
+  </section>
+  
+  <footer class="post-footer post-meta-actions">
+    <div class="post-meta">
+      {{#if author.name}}<span class="post-author"><i class="fa fa-user"></i> By <a href="{{url}}#author">{{author.name}}</a></span>{{/if}}
+      {{#if tags}}<span class="post-tags"><i class="fa fa-tags"></i> {{tags}}</span>{{/if}}
+    </div>
+    <div class="post-actions">
+      {{> post_share}}
+      <a href="{{url}}" class="btn btn-sm btn-primary-light btn-square post-readmore">View Post</a>
+    </div>
+  </footer>
+</article>
+
+{{#if @even}}
+<div class="clearfix"></div>
+{{else}}
+  {{#if @last}}
+<div class="clearfix"></div>
+  {{/if}}
+{{/if}}

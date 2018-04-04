@@ -1,0 +1,10 @@
+{{!< index}}
+<nav class="pagination clearfix" role="navigation" role="navigation" data-toggle="infinitescroll" data-target="#posts" data-next-selector="a.older-posts" data-max-page="{{pages}}">
+  <span class="page-number">Page {{page}} of {{pages}}</span>
+  {{#if prev}}
+    <a class="btn btn-lg btn-primary btn-square newer-posts" href="{{pageUrl prev}}">&larr; Newer Posts</a>
+  {{/if}}
+  {{#if next}}
+    <a class="btn btn-lg btn-primary btn-square older-posts" href="{{pageUrl next}}">Older Posts &rarr;</a>
+  {{/if}}
+</nav>
